@@ -1,0 +1,67 @@
+@use "../styles/abstracts/index" as *;
+@use "../styles/mixins/index" as *;
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr minmax($mobile, $desktop) 1fr;
+  grid-auto-rows: 150px auto 300px;
+  grid-template-areas:
+		"header header header"
+		". main ."
+		". footer .";
+  min-height: 100vh;
+  position: relative;
+  @media (max-width: $ipad) {
+    grid-auto-rows: 150px auto 200px;
+  }
+}
+
+.header {
+  grid-area: header;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+  height: auto;
+}
+
+.main {
+  grid-area: main;
+  margin: 1rem 0;
+  padding: 0.3rem 1rem;
+
+
+  @media (max-width: $ipad) {
+    display: none;
+  }
+}
+
+.footer {
+  grid-area: footer;
+  padding: 1rem;
+
+  @media (max-width: $ipad) {
+    display: none;
+  }
+}
+
+.footerMobile {
+  display: none;
+  background-color: white;
+  width: 100%;
+  padding: 1rem;
+
+  @media (max-width: $ipad) {
+    @include flex-space-around-center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.content {
+  margin: 0 auto;
+  width: min($desktop, 100%);
+}

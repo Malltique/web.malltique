@@ -1,0 +1,20 @@
+@use "../../styles/abstracts/index" as *;
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0.3rem;
+  margin: 0.3rem 0;
+
+  @media (max-width: $ipad) {
+    display: none;
+  }
+}
+
+.service {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $cl-white;
+}

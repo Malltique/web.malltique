@@ -1,0 +1,28 @@
+@use "../../styles/abstracts/index" as *;
+@use "../../styles/mixins/index" as *;
+
+
+.container {
+  @include flex-column;
+  z-index: 99;
+  gap: 2rem;
+}
+
+.catalogs {
+  @include flex-space-around-center;
+  padding: 1rem;
+  margin: 2rem 0;
+  border-radius: 1rem;
+  background-color: $cl-brown_light;
+
+  @media (max-width: $ipad) {
+    margin: 1rem 0;
+    padding: 0.5rem;
+  }
+}
+
+.content {
+  @include  flex-space-around;
+}
+
+

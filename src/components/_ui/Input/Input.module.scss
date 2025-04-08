@@ -1,0 +1,27 @@
+@use "../../../styles/abstracts/index" as *;
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  height: 50px;
+  border: 1px solid $cl-brown_light;
+  color: $cl-text;
+  border-radius: $box-radius;
+  padding: 0.2rem 1rem;
+  z-index: 3;
+}
+
+.input {
+  outline: none;
+  border: none;
+  background: none;
+  width: 100%;
+  border-radius: $box-radius;
+  padding: 0.5rem;
+  background-color: $cl-white;
+  z-index: 3;
+}
+
+

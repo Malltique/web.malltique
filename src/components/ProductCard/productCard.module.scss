@@ -1,0 +1,101 @@
+@use "../../styles/abstracts/index" as *;
+@use "../../styles/mixins/index" as *;
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  border-radius: $box-radius;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+
+  @media (max-width: $ipad) {
+    height: 200px;
+    padding: 0.1rem;
+  }
+}
+
+.name {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; // количество строк
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.imgWrapper {
+  height: 250px;
+  position: relative;
+
+  @media (max-width: $ipad) {
+    height: 200px;
+    padding: 0.1rem;
+  }
+}
+
+.badges {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 1;
+}
+
+.like {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 1;
+}
+
+.price {
+  display: flex;
+  gap: 0.5rem;
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  padding: 0.5rem;
+  border-radius: $box-radius;
+  color: $cl-white;
+  background-color: $cl-text;
+  z-index: 1;
+}
+
+.buttonBuy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  color: $cl-white;
+  background-color: $cl-fio-secondary;
+  border-radius: $box-radius-primary;
+  text-align: center;
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  transition: height 0.2s;
+}
+
+.container:hover  .buttonBuy {
+  height: 100%;
+  opacity: 1;
+}
+
+.footer {
+  display: flex;
+  justify-content: left;
+}
+
+.review {
+  @include flex-center;
+  gap: 0.5rem;
+}
+

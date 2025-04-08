@@ -1,0 +1,60 @@
+@use "../../styles/abstracts/index" as *;
+@use "../../styles/mixins/index" as *;
+
+
+.container {
+  @include flex-column;
+  padding: 0 1rem;
+}
+
+.links {
+  height: 40px;
+  transition: height .2s;
+
+  @media (max-width: $ipad) {
+    display: none;
+  }
+}
+
+.searchBar {
+  height: 70px;
+}
+
+.catalog {
+  height: 40px;
+  transition: height .1s;
+  display: flex;
+  justify-content: right;
+  gap: 2rem;
+
+  @media (max-width: $ipad) {
+    display: none;
+  }
+}
+
+.mobileLink {
+  display: none;
+
+  @media (max-width: $ipad) {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 0.2rem;
+    width: 110%;
+    margin-left: -16px;
+    padding:  0.5rem;
+    height: 35px;
+    background-color: $cl-brown_light;
+    color: $cl-brown;
+  }
+}
+
+.linkAppWrapper {
+  background-color: $cl-primary;
+  border-radius: 0 0 $box-radius  $box-radius;
+  padding: 0.5rem;
+}
+
+
+
+

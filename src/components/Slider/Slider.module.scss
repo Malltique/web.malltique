@@ -1,0 +1,21 @@
+@use "../../styles/abstracts/index" as *;
+@use "../../styles/mixins/index" as *;
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  gap: 1rem;
+}
+
+.currentImg {
+  border-radius: $box-radius;
+  overflow: hidden;
+}
+
+.img {
+  border-radius: $box-radius-primary;
+  overflow: hidden;
+  cursor: pointer;
+}
+

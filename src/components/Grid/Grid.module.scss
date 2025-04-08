@@ -1,0 +1,62 @@
+@use "../../styles/abstracts/index" as *;
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  margin: 0.3rem 0;
+
+  @media (max-width: $ipad) {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin: 0.3rem 0;
+  }
+
+  @media (max-width: $mobile) {
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 0.2rem 0;
+  }
+}
+
+.gridHorizontalScroll {
+  display: grid;
+  grid-template-columns:  repeat(5, 1fr);
+  grid-template-rows: 1fr;
+  overflow: scroll;
+  gap: 1.5rem;
+  margin: 0.3rem 0;
+  width: 98%;
+
+  @media (max-width: $ipad) {
+    gap: 0.8rem;
+    margin: 0.8rem 0;
+    grid-template-rows: 1fr;
+    grid-auto-flow: column;
+  }
+
+  @media (max-width: $mobile) {
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+    grid-template-rows: 1fr;
+    grid-auto-flow: column;
+  }
+}
+
+.container {
+  background-color: $cl-white;
+  padding: 1rem;
+  margin: 0.3rem 0;
+  border-radius: $box-radius;
+
+  @media (max-width: $ipad) {
+    padding: 1rem;
+    margin: 0.1rem 0;
+  }
+
+  @media (max-width: $mobile) {
+    padding: 0.5rem;
+    margin: 0.1rem 0;
+  }
+}
+

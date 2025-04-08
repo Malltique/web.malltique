@@ -1,0 +1,21 @@
+@use "../../styles/abstracts/index" as *;
+
+.container {
+  display: none;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  z-index: 5;
+
+  @media (max-width: $ipad) {
+    font-size: $fs-secondary;
+  }
+
+  @media (max-width: $mobile) {
+    font-size: $fs-mobile;
+  }
+}
+
+.show {
+  display: block;
+}

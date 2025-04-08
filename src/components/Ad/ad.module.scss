@@ -1,0 +1,47 @@
+@use "../../styles/abstracts/index" as *;
+
+.container {
+  margin: 0.3rem 0;
+  width: 100%;
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto;
+  background-color: $cl-white;
+  border-radius: 0 0 $box-radius $box-radius;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.content {
+  height: 200px;
+  border-radius: $box-radius;
+  position: relative;
+
+  @media (max-width: $ipad) {
+    height: 150px;
+  }
+
+  @media (max-width: $mobile) {
+    height: 100px;
+  }
+}
+
+.badge {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  z-index: 9;
+}
+
+.img {
+  height: 200px;
+
+  @media (max-width: $ipad) {
+    height: 150px;
+  }
+
+  @media (max-width: $mobile) {
+    height: 100px;
+  }
+}
+
