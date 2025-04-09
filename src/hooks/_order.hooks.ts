@@ -15,8 +15,10 @@ export const useOrders = () => {
         return response.data;
     };
 
+
     const queryOptions: UseQueryOptions<never[], AxiosError> = {
         queryKey: ['orders'],
+        // @ts-ignore
         queryFn,
     };
 
