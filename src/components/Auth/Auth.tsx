@@ -86,7 +86,7 @@ export const Auth = () => {
     return (
         <Drawer  overlayProps={{
             style: {
-                backdropFilter: 'blur(8px)',
+                backdropFilter: 'blur(30px)',
                 backgroundColor: 'rgba(0, 0, 0, 0)',
             },
         }} position="right" offset={8} radius="md" opened={openAuth} onClose={handleCloseAuthDrawer}>

@@ -1,3 +1,15 @@
+export const BANNER_IMG = [
+    'https://cdn1.ozonusercontent.com/s3/sellerassets/ww2150_q80/cbae0485-772e-11ef-9ba2-fe94ab6be75b.jpeg',
+    'https://cdn1.ozonusercontent.com/s3/sellerassets/ww2150_q80/d8c33abb-7b27-11ef-a95f-0a513b09dee9.jpeg',
+    'https://static-basket-01.wbbasket.ru/vol1/crm-bnrs/bners1/2880_prizy.webp',
+];
+
+export const AD_IMAGES = [
+    'https://cs13.pikabu.ru/post_img/big/2023/06/20/7/1687260805146727435.jpg',
+    'https://www.tehnoprosto.ru/wp-content/uploads/2018/06/Dyson-Supersonic-optimized.jpg',
+    'https://madwins.ru/wp-content/uploads/2019/04/Prodvizhenie_detskoy_obuvi_v_instagram.jpg',
+    'https://static.tildacdn.com/tild6461-6132-4735-b433-393034663531/VideoCover0041.jpg',
+];
 
 export const PRODUCT = [
     {
@@ -5,7 +17,7 @@ export const PRODUCT = [
         name: "De'Longhi An array of strings – used when value and label are the same",
         rating: 5,
         price: '100$',
-        prevPrice: '134$',
+        prevPrice: '$134',
         percent: '22%',
         imgUrl: 'https://stockmann.ru/istk/wo6RkrxfoLEKPLsSn08y9eC1wwKD65s6uvpT9a4tqYY/rs:fill:708:1119:0/g:no/bG9jYWw6Ly8vdXBsb2FkLy9jbXMvc3RhdGljL2RhdGFfcGljdHVyZXMvRk9WbDNkQWxXMjlYejBhWlcxTTdZV1RrNkd0V1RIZVVZRnlhajVPYS5wbmc.jpg',
         isNew: false,
@@ -16,7 +28,7 @@ export const PRODUCT = [
         name: 'HyperX Alloy Origins An array of strings – used when value and label are the same',
         rating: 3,
         price: '12$',
-        prevPrice: '34$',
+        prevPrice: '$34',
         percent: '20%',
         imgUrl: 'https://m.media-amazon.com/images/I/61+Jg1fJSsL._AC_UL320_.jpg',
         isNew: true,
@@ -28,7 +40,7 @@ export const PRODUCT = [
         name: '4 Tier Plastic Storage An array of strings – used when value and label are the same',
         rating: 5,
         price: '40$',
-        prevPrice: '60$',
+        prevPrice: '$600',
         percent: '10%',
         imgUrl: 'https://m.media-amazon.com/images/I/71Snbx6a0hL._AC_UL320_.jpg',
         isNew: true,
@@ -52,7 +64,7 @@ export const PRODUCT = [
         price: '$20.78',
         prevPrice: '60$',
         percent: '10%',
-        imgUrl: 'https://fashionstore.ru/upload/iblock/fec/cnd6ejer33iunb8916g8b7gml9gwi5vp.jpg',
+        imgUrl: 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/26e06a28-c94d-4483-adc3-4700e4aecd86/NIKE+AIR+ZOOM+STRUCTURE+25.png',
         isNew: true,
         isGoodPrice: false,
     },

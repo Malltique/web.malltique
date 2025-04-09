@@ -3,9 +3,11 @@ import {createRoot} from 'react-dom/client'
 import {BrowserRouter} from "react-router-dom";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import '@mantine/core/styles.css';
-import './styles/globals.scss'
+import '@mantine/carousel/styles.css';
 import App from './App.tsx'
 import {MantineProvider} from "@mantine/core";
+
+import './styles/globals.scss'
 
 const queryClient = new QueryClient();
 
