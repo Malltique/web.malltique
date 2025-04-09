@@ -4,6 +4,7 @@ import { Badge, Image, Text } from '@mantine/core';
 import styles from './productCard.module.scss';
 import { ISellCardProps } from './productCard.props';
 import { ALink } from '../_ui';
+import {useNavigate} from "react-router-dom";
 
 export const ProductCard: FC<ISellCardProps> = ({
   imgUrl,
@@ -14,8 +15,11 @@ export const ProductCard: FC<ISellCardProps> = ({
   rating,
   prevPrice,
   price,
-}) => (
-    <div className={styles.container}>
+}) => {
+    const navigate = useNavigate();
+
+    return (
+    <div className={styles.container} onClick={() => navigate(`/product/1`)}>
         <div className={styles.imgWrapper}>
             <Image src={imgUrl} h={300} radius="md"/>
             <ALink
@@ -55,4 +59,4 @@ export const ProductCard: FC<ISellCardProps> = ({
             </div>
         </div>
     </div>
-);
+)};
