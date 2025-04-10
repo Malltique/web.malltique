@@ -9,7 +9,7 @@ import { ChatBubble } from '../ChatBubble/ChatBubble';
 
 export const ProductTabs = () => {
     return (
-        <Card shadow="md" radius="xl" padding="lg" withBorder style={{ width: '60%' }}>
+        <Card shadow="md" radius="xl" padding="lg" withBorder style={{ width: '70%' }}>
             <Tabs defaultValue="reviews">
                 <Tabs.List grow>
                     <Tabs.Tab value="detail">Detail</Tabs.Tab>
