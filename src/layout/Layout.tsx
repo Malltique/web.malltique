@@ -9,9 +9,7 @@ import {MainContextProvider} from "../context";
 export const Layout: FC<{ children: ReactNode }> = ({children}) => (
     <div className={styles.wrapper}>
         <header className={styles.header}>
-            <div className={styles.content}>
-                <Header/>
-            </div>
+            <Header/>
         </header>
         <main className={styles.main}>{children}</main>
         <Footer className={styles.footer}/>

@@ -4,9 +4,9 @@
 .wrapper {
   display: grid;
   grid-template-columns: 1fr minmax($mobile, $desktop) 1fr;
-  grid-auto-rows: 100px auto 300px;
+  grid-auto-rows: 150px auto 300px;
   grid-template-areas:
-		"header header header"
+		". header ."
 		". main ."
 		". footer .";
   min-height: 100vh;
@@ -19,23 +19,20 @@
 .header {
   grid-area: header;
   background-color: white;
+  border-radius: 0 0 1rem 1rem;
   position: fixed;
+  width: min($desktop, 100%);
   top: 0;
-  left: 0;
-  width: 100%;
   z-index: 9;
-  height: auto;
 }
 
 .main {
   grid-area: main;
-  margin: 1rem 0;
-  padding: 0.3rem 1rem;
+  padding: 0.3rem 0;
 
-
-  @media (max-width: $ipad) {
-    display: none;
-  }
+  //@media (max-width: $ipad) {
+  //  display: none;
+  //}
 }
 
 .footer {
@@ -51,7 +48,7 @@
   display: none;
   background-color: white;
   width: 100%;
-  padding: 1rem;
+  padding: 1rem 0;
 
   @media (max-width: $ipad) {
     @include flex-space-around-center;
@@ -59,9 +56,4 @@
     bottom: 0;
     left: 0;
   }
-}
-
-.content {
-  margin: 0 auto;
-  width: min($desktop, 100%);
 }

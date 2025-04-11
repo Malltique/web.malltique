@@ -1,7 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import { apiService } from '../api/api.ts';
 
-
 export interface ILoginInput {
     email: string;
     password: string;

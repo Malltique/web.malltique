@@ -3,11 +3,13 @@ import {
   IconBrandFacebook,
   IconBrandGoogle,
 } from '@tabler/icons-react';
-import {Anchor, Button, Divider, Drawer, Group, Paper, PasswordInput, Stack, Tabs, TextInput} from '@mantine/core';
+import {Anchor, Button, Divider, Group, Modal, Paper, PasswordInput, Stack, Tabs, TextInput} from '@mantine/core';
 import { useForm, UseFormReturnType } from '@mantine/form';
 import {MainContext} from "../../context";
 import {ILoginInput, useAuth} from "../../hooks";
 import {useNavigate} from "react-router-dom";
+import { signInWithPopup } from 'firebase/auth';
+import {auth, googleProvider} from "../../api/auth.ts";
 
 type AuthTab = 'login' | 'register';
 
@@ -83,13 +85,35 @@ export const Auth = () => {
         })
     };
 
+
+    const handleGoogleLogin = async () => {
+        try {
+            const result = await signInWithPopup(auth, googleProvider);
+            const value = {
+                email: result.user.email || '',
+                password: '12345678',
+            }
+            localStorage.setItem("mainImage", result.user.photoURL || '')
+
+            login(value, {
+                onSuccess: () => {
+                    setOpenAuth(false)
+                    navigate("/");
+                },
+            })
+            console.log('Google user:', result.user);
+        } catch (err) {
+            console.error('Google login error:', err);
+        }
+    };
+
     return (
-        <Drawer  overlayProps={{
+        <Modal  overlayProps={{
             style: {
                 backdropFilter: 'blur(30px)',
                 backgroundColor: 'rgba(0, 0, 0, 0)',
             },
-        }} position="right" offset={8} radius="md" opened={openAuth} onClose={handleCloseAuthDrawer}>
+        }} radius="xl" opened={openAuth} onClose={handleCloseAuthDrawer}>
             <Paper p="xl" radius="md">
                 <Tabs value={activeTab} onChange={(val) => setActiveTab(val as AuthTab)} mb="lg">
                     <Tabs.List grow>
@@ -130,6 +154,24 @@ export const Auth = () => {
                                     }}
                                 >
                                     Sign In
+                                </Button>
+                                <Divider label="or continue with" labelPosition="center" my="sm" />
+
+                                <Button
+                                    variant="default"
+                                    leftSection={<IconBrandGoogle size={18} />}
+                                    fullWidth
+                                    onClick={handleGoogleLogin}
+                                >
+                                    Google
+                                </Button>
+
+                                <Button
+                                    variant="default"
+                                    leftSection={<IconBrandFacebook size={18} />}
+                                    fullWidth
+                                >
+                                    Facebook
                                 </Button>
                             </Stack>
                         </form>
@@ -175,28 +217,11 @@ export const Auth = () => {
                                 >
                                     Register
                                 </Button>
-                                <Divider label="or continue with" labelPosition="center" my="sm" />
-
-                                <Button
-                                  variant="default"
-                                  leftSection={<IconBrandGoogle size={18} />}
-                                  fullWidth
-                                >
-                                    Google
-                                </Button>
-
-                                <Button
-                                  variant="default"
-                                  leftSection={<IconBrandFacebook size={18} />}
-                                  fullWidth
-                                >
-                                     Facebook
-                                </Button>
                             </Stack>
                         </form>
                     </Tabs.Panel>
                 </Tabs>
             </Paper>
-        </Drawer>
+        </Modal>
     );
 };

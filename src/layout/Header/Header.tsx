@@ -37,7 +37,7 @@ export const Header: FC<IHeaderProps> = ({ ...props }) => {
           {CATALOGS.map((category, index) => (
             <ALink
               key={index}
-              variant="secondary"
+              variant="primary"
               label={category.label}
               leftSection={category.icon}
               href={category.href}

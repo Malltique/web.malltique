@@ -20,7 +20,7 @@ const total = ratingData.reduce((sum, item) => sum + item.value, 0);
 
 export const RatingStatsCard = () => {
     return (
-        <Card shadow="md" radius="xl" padding="lg" withBorder style={{ width: 360 }} h={350}>
+        <Card shadow="md" radius="lg" padding="lg" withBorder style={{ width: 360 }} h={350}>
             <Stack>
                 <Group align="center" justify="space-between">
                     <Group>
