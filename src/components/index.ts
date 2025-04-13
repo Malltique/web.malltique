@@ -12,3 +12,8 @@ export * from './PriceCard/PriceCard';
 export * from './RatingStatsCard/RatingStatsCard';
 export * from './ProductTabs/ProductTabs';
 export * from './ChatBubble/ChatBubble';
+export * from './GoogleButton/GoogleButton';
+export * from './ProductGallery/ProductGallery';
+export * from './ProductSummary/ProductSummary';
+export * from './ProductSpecifications/ProductSpecifications';
+export * from './PriceCardFixed/PriceCardFixed';

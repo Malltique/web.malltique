@@ -1,0 +1,29 @@
+.googleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #ffffff;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  &__icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  &__text {
+    color: #3c4043;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Roboto", sans-serif;
+  }
+}

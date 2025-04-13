@@ -1,0 +1,34 @@
+@use "../../styles/abstracts" as *;
+
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.buyButton {
+  background-color: $cl-primary,
+}
+
+.wrapper {
+  width: 360px;
+  height: 360px;
+  background: linear-gradient(
+                  270deg,
+                  $cl-primary,
+                  $cl-secondary,
+                  $cl-fio,
+  );
+  background-size: 600% 600%;
+  color: white;
+  transition: transform 0.3s ease;
+  animation: gradientShift 5s ease 0s 3 forwards;
+  transform: scale(1.05);
+}

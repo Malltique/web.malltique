@@ -3,8 +3,7 @@
 .linkContainer {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-weight: 500;
+  gap: 0.2rem;
   color: #fd94c0;
 
   @media (max-width: $ipad) {
@@ -21,5 +20,6 @@
 }
 
 .primary {
-  color: $cl-date;
+  color:  $cl-brown;
+  font-weight: $fw-semiBold;
 }

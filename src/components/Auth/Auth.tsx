@@ -1,8 +1,4 @@
 import {useContext, useState} from 'react';
-import {
-  IconBrandFacebook,
-  IconBrandGoogle,
-} from '@tabler/icons-react';
 import {Anchor, Button, Divider, Group, Modal, Paper, PasswordInput, Stack, Tabs, TextInput} from '@mantine/core';
 import { useForm, UseFormReturnType } from '@mantine/form';
 import {MainContext} from "../../context";
@@ -10,6 +6,7 @@ import {ILoginInput, useAuth} from "../../hooks";
 import {useNavigate} from "react-router-dom";
 import { signInWithPopup } from 'firebase/auth';
 import {auth, googleProvider} from "../../api/auth.ts";
+import {GoogleButton} from "../GoogleButton/GoogleButton.tsx";
 
 type AuthTab = 'login' | 'register';
 
@@ -86,7 +83,8 @@ export const Auth = () => {
     };
 
 
-    const handleGoogleLogin = async () => {
+    const handleGoogleLogin = async (e: any) => {
+        e.preventDefault();
         try {
             const result = await signInWithPopup(auth, googleProvider);
             const value = {
@@ -101,7 +99,6 @@ export const Auth = () => {
                     navigate("/");
                 },
             })
-            console.log('Google user:', result.user);
         } catch (err) {
             console.error('Google login error:', err);
         }
@@ -157,22 +154,7 @@ export const Auth = () => {
                                 </Button>
                                 <Divider label="or continue with" labelPosition="center" my="sm" />
 
-                                <Button
-                                    variant="default"
-                                    leftSection={<IconBrandGoogle size={18} />}
-                                    fullWidth
-                                    onClick={handleGoogleLogin}
-                                >
-                                    Google
-                                </Button>
-
-                                <Button
-                                    variant="default"
-                                    leftSection={<IconBrandFacebook size={18} />}
-                                    fullWidth
-                                >
-                                    Facebook
-                                </Button>
+                                <GoogleButton onClick={handleGoogleLogin}/>
                             </Stack>
                         </form>
                     </Tabs.Panel>

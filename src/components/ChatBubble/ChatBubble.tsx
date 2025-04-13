@@ -21,7 +21,7 @@ export const ChatBubble = ({
             {!isUser && <Avatar src={avatar} radius="xl" size="md"/>}
             <Box maw="70%">
                 <Text size="sm" fw={500}>{name}</Text>
-                <Card withBorder radius="md" px="md" py="xs" bg={isUser ? 'gray.1' : 'gray.0'}>
+                <Card radius="md" px="md" py="xs">
                     <Text size="sm">{message}</Text>
                     {children}
                 </Card>

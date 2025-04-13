@@ -1,10 +1,11 @@
-@use "../styles/abstracts/index" as *;
-@use "../styles/mixins/index" as *;
+@use "../styles/abstracts" as *;
+@use "../styles/mixins" as *;
 
 .wrapper {
   display: grid;
   grid-template-columns: 1fr minmax($mobile, $desktop) 1fr;
-  grid-auto-rows: 150px auto 300px;
+  grid-auto-rows: 140px auto 300px;
+  padding: 0 1rem;
   grid-template-areas:
 		". header ."
 		". main ."
@@ -28,7 +29,6 @@
 
 .main {
   grid-area: main;
-  padding: 0.3rem 0;
 
   //@media (max-width: $ipad) {
   //  display: none;
@@ -36,8 +36,8 @@
 }
 
 .footer {
+
   grid-area: footer;
-  padding: 1rem;
 
   @media (max-width: $ipad) {
     display: none;

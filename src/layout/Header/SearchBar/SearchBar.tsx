@@ -8,13 +8,15 @@ import {
 import styles from './searchBar.module.scss';
 import W from './logo.png';
 import {Link, useNavigate } from "react-router-dom";
-import {ALink, Input} from '../../../components';
-import {useContext} from "react";
+import { Input } from '../../../components';
+import {useContext, useState} from "react";
 import {MainContext} from "../../../context";
-import { ActionIcon} from "@mantine/core";
+import { ActionIcon } from "@mantine/core";
+import {MainFilters} from "../../../components/_filters";
 
 export const SearchBar = () => {
     const {setOpenAuth} = useContext(MainContext);
+    const [openFilter, setOpenFilter] = useState(false)
     const navigate = useNavigate()
     const token = localStorage.getItem("token")
 
@@ -29,13 +31,16 @@ export const SearchBar = () => {
 
     return (
         <div className={styles.container}>
+            <MainFilters opened={openFilter} onClose={() => setOpenFilter(false)}/>
             <Link className={styles.search_content_catalog} to="/src/public">
                 <img className={styles.logo} src={W} width={200} height={200} alt="logo"/>
             </Link>
             <div className={styles.search}>
                 <Input
                     leftSection={
-                        <ALink label="" variant="secondary" leftSection={<IconCategory2/>} href="#"/>
+                        <ActionIcon  color="hsl(244, 16%, 43%)" onClick={() => setOpenFilter(true)} variant="transparent">
+                            <IconCategory2 />
+                        </ActionIcon>
                     }
                     placeholder="find on MALLTIQUE"
                 />
@@ -49,6 +54,7 @@ export const SearchBar = () => {
                     <IconTruckDelivery size={30} stroke={1.5} />
                 </ActionIcon>
                 <ActionIcon
+                    fw={700}
                     color="hsl(244, 16%, 43%)"
                     onClick={() => handleNavigate('orders')}
                     variant="transparent"

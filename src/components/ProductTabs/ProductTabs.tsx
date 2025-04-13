@@ -5,20 +5,28 @@ import {
     ScrollArea,
 } from '@mantine/core';
 import { ChatBubble } from '../ChatBubble/ChatBubble';
+import {IconHelpCircle, IconInfoCircle, IconMessageCircle } from '@tabler/icons-react';
+import {ProductSpecifications} from "../ProductSpecifications/ProductSpecifications.tsx";
 
 
 export const ProductTabs = () => {
     return (
-        <Card shadow="md" radius="lg" padding="lg" withBorder style={{ width: '70%' }}>
-            <Tabs defaultValue="reviews">
+        <Card radius="lg" padding="lg" style={{ width: '65%' }}>
+            <Tabs defaultValue="detail" variant="pills" radius="md" color="blue">
                 <Tabs.List grow>
-                    <Tabs.Tab value="detail">Detail</Tabs.Tab>
-                    <Tabs.Tab value="reviews">Reviews</Tabs.Tab>
-                    <Tabs.Tab value="questions">Questions</Tabs.Tab>
+                    <Tabs.Tab value="detail" color="hsl(43, 100%, 68%)" leftSection={<IconInfoCircle size={20} />}>
+                        Detail
+                    </Tabs.Tab>
+                    <Tabs.Tab value="reviews" color="hsl(43, 100%, 68%)" leftSection={<IconMessageCircle size={20} />}>
+                        Reviews
+                    </Tabs.Tab>
+                    <Tabs.Tab value="questions" color="hsl(43, 100%, 68%)" leftSection={<IconHelpCircle size={20} />}>
+                        Questions
+                    </Tabs.Tab>
                 </Tabs.List>
 
                 <Tabs.Panel value="detail" pt="md" h={400}>
-                    detail
+                    <ProductSpecifications />
                 </Tabs.Panel>
 
                 <Tabs.Panel value="reviews" pt="md" h={400}>
