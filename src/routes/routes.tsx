@@ -1,7 +1,7 @@
 import {AnimatePresence} from "framer-motion";
 import {Route, Routes, useLocation} from "react-router-dom";
 
-import {Home, ProductDetail, Profile} from "../pages";
+import {Home, ProductDetail, Profile, Vendor} from "../pages";
 
 export const AnimatedRoutes = () => {
     const location = useLocation();
@@ -11,6 +11,7 @@ export const AnimatedRoutes = () => {
                 <Route path="/" element={<Home/>}/>
                 <Route path="/profile/:tab" element={<Profile/>}/>
                 <Route path="/product/:id" element={<ProductDetail/>}/>
+                <Route path="/Vendor/:vendorId" element={<Vendor/>}/>
             </Routes>
         </AnimatePresence>
     );

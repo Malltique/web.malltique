@@ -6,6 +6,7 @@ import { SearchBar } from './SearchBar/SearchBar';
 import {ALink} from "../../components";
 import {CATALOGS} from "./constants.tsx";
 import {useSticky} from "../../hooks";
+import { Button } from '../../components/_ui/Button/Button.tsx';
 
 export const Header: FC<IHeaderProps> = ({ ...props }) => {
   const { isSticky } = useSticky(100);
@@ -33,17 +34,20 @@ export const Header: FC<IHeaderProps> = ({ ...props }) => {
         <SearchBar />
       </div>
       {!isSticky && (
-        <div className={styles.catalog}>
-          {CATALOGS.map((category, index) => (
-            <ALink
-              key={index}
-              variant="primary"
-              label={category.label}
-              leftSection={category.icon}
-              href={category.href}
-            />
-          ))}
-        </div>
+          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+              <div className={styles.catalog}>
+                  {CATALOGS.map((category, index) => (
+                      <ALink
+                          key={index}
+                          variant="primary"
+                          label={category.label}
+                          leftSection={category.icon}
+                          href="/vendor/1"
+                      />
+                  ))}
+              </div>
+              <Button variant="animate">become a seller</Button>
+          </div>
       )}
     </div>
   );

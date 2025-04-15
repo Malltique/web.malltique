@@ -2,8 +2,8 @@ import { FC } from 'react';
 import { IconHeart, IconMessage, IconStarFilled, IconThumbUp } from '@tabler/icons-react';
 import { Badge, Image, Text } from '@mantine/core';
 import styles from './productCard.module.scss';
-import { ISellCardProps } from './productCard.props';
-import { ALink } from '../_ui';
+import { ISellCardProps } from './productCard.props.ts';
+import { ALink } from '../../_ui';
 import {useNavigate} from "react-router-dom";
 
 export const ProductCard: FC<ISellCardProps> = ({

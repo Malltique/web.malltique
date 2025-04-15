@@ -1,64 +1,70 @@
-import {FC, useState} from 'react';
+import { FC, useState } from 'react';
 import {
     Box,
     Button,
     Checkbox,
     Drawer,
-    Group, MultiSelect,
+    Group,
+    MultiSelect,
     RangeSlider,
     Stack,
     Text,
 } from '@mantine/core';
-import {IconBuildingWarehouse, IconCategory, IconFilter, IconShoppingCart, IconStar} from '@tabler/icons-react';
+import {
+    IconShoppingCart,
+    IconCategory,
+    IconFilter,
+    IconStar,
+    IconBuildingWarehouse,
+} from '@tabler/icons-react';
 
 const primary = 'hsl(353, 100%, 65%)';
 
-const categories = [
-    {value: 'electronics', label: 'Electronics'},
-    {value: 'clothing', label: 'Clothing'},
-    {value: 'beauty', label: 'Beauty'},
-    {value: 'home', label: 'Vendor & Garden'},
+const groceryCategories = [
+    { value: 'fruits', label: 'Fruits' },
+    { value: 'vegetables', label: 'Vegetables' },
+    { value: 'dairy', label: 'Dairy' },
+    { value: 'meat', label: 'Meat & Poultry' },
+    { value: 'bakery', label: 'Bakery' },
 ];
 
-const brands = [
-    {value: 'samsung', label: 'Samsung'},
-    {value: 'apple', label: 'Apple'},
-    {value: 'nike', label: 'Nike'},
-    {value: 'loreal', label: 'L’Oreal'},
+const groceryBrands = [
+    { value: 'heb', label: 'H-E-B' },
+    { value: 'organic_valley', label: 'Organic Valley' },
+    { value: 'green_giant', label: 'Green Giant' },
+    { value: 'kraft', label: 'Kraft' },
 ];
 
-const stores = [
-    {value: 'store-1', label: 'Store One'},
-    {value: 'store-2', label: 'Store Two'},
-    {value: 'store-3', label: 'Store Three'},
+const groceryStores = [
+    { value: 'store_heb', label: 'H-E-B' },
+    { value: 'store_wholefoods', label: 'Whole Foods' },
+    { value: 'store_costco', label: 'Costco' },
 ];
 
 const ratingOptions = [
-    {label: '4 stars & up', value: '4'},
-    {label: '3 stars & up', value: '3'},
-    {label: '2 stars & up', value: '2'},
+    { label: '4 stars & up', value: '4' },
+    { label: '3 stars & up', value: '3' },
+    { label: '2 stars & up', value: '2' },
 ];
 
-export interface IMainFilters {
+export interface IVendorFilters {
     opened: boolean;
     onClose: () => void;
 }
 
-
-export const MainFilters:FC<IMainFilters> = ({opened, onClose}) => {
-
+export const VendorFilters: FC<IVendorFilters> = ({ opened, onClose }) => {
     const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
     const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
     const [selectedStores, setSelectedStores] = useState<string[]>([]);
-    const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
+    const [priceRange, setPriceRange] = useState<[number, number]>([0, 500]);
     const [selectedRatings, setSelectedRatings] = useState<string[]>([]);
 
     const handleApply = () => {
         console.log({
-            categorys: selectedCategories,
+            categories: selectedCategories,
             brands: selectedBrands,
             stores: selectedStores,
-            price: priceRange,
+            priceRange,
             ratings: selectedRatings,
         });
         onClose();
@@ -68,7 +74,7 @@ export const MainFilters:FC<IMainFilters> = ({opened, onClose}) => {
         <Drawer
             opened={opened}
             onClose={onClose}
-            title="Filters"
+            title="Product Filters"
             padding="md"
             size="sm"
             position="left"
@@ -95,8 +101,8 @@ export const MainFilters:FC<IMainFilters> = ({opened, onClose}) => {
                             <span>Category</span>
                         </Group>
                     }
-                    placeholder="Select categories"
-                    data={categories}
+                    placeholder="Select grocery categories"
+                    data={groceryCategories}
                     value={selectedCategories}
                     onChange={setSelectedCategories}
                     searchable
@@ -112,7 +118,7 @@ export const MainFilters:FC<IMainFilters> = ({opened, onClose}) => {
                         </Group>
                     }
                     placeholder="Select brands"
-                    data={brands}
+                    data={groceryBrands}
                     value={selectedBrands}
                     onChange={setSelectedBrands}
                     searchable
@@ -122,13 +128,13 @@ export const MainFilters:FC<IMainFilters> = ({opened, onClose}) => {
 
                 <MultiSelect
                     label={
-                        <Group >
+                        <Group>
                             <IconShoppingCart size={18} />
                             <span>Store</span>
                         </Group>
                     }
                     placeholder="Select stores"
-                    data={stores}
+                    data={groceryStores}
                     value={selectedStores}
                     onChange={setSelectedStores}
                     searchable
@@ -139,7 +145,7 @@ export const MainFilters:FC<IMainFilters> = ({opened, onClose}) => {
                 <Box>
                     <Group mb={4}>
                         <Group>
-                            <IconFilter size={16}/>
+                            <IconFilter size={16} />
                             <Text size="sm" fw={500}>
                                 Price range
                             </Text>
@@ -150,8 +156,8 @@ export const MainFilters:FC<IMainFilters> = ({opened, onClose}) => {
                     </Group>
                     <RangeSlider
                         min={0}
-                        max={5000}
-                        step={50}
+                        max={1000}
+                        step={10}
                         value={priceRange}
                         onChange={setPriceRange}
                         label={(val) => `$${val}`}
@@ -163,7 +169,7 @@ export const MainFilters:FC<IMainFilters> = ({opened, onClose}) => {
                 <Checkbox.Group
                     label={
                         <Group>
-                            <IconStar size={18}/>
+                            <IconStar size={18} />
                             <span>Rating</span>
                         </Group>
                     }
@@ -188,7 +194,7 @@ export const MainFilters:FC<IMainFilters> = ({opened, onClose}) => {
                         onClick={handleApply}
                         color={primary}
                         radius="md"
-                        style={{backgroundColor: primary}}
+                        style={{ backgroundColor: primary }}
                     >
                         Apply Filters
                     </Button>
@@ -196,4 +202,4 @@ export const MainFilters:FC<IMainFilters> = ({opened, onClose}) => {
             </Stack>
         </Drawer>
     );
-}
+};

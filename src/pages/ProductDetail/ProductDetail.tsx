@@ -6,21 +6,22 @@ import {
     ProductSummary,
     Grid,
     ProductCard,
-    PriceCardFixed
+    PriceCardFixed,
 } from "../../components";
-import {Card, Group} from "@mantine/core";
+import {Card, Group, Image} from "@mantine/core";
 import {PRODUCT} from "../../constants.tsx";
 import {useSticky} from "../../hooks";
 
 
 export const ProductDetail = () => {
-    const { isSticky } = useSticky(300);
+    const {isSticky} = useSticky(300);
     return (
         <>
             {isSticky && <PriceCardFixed/>}
-            <Card radius="lg" style={{width: '100%'}} p={20}>
+            <Image src="https://ir.ozone.ru/s3/cms/f5/t04/wc1450/whiskas_4320-96.png" height={50} radius="lg" mb="lg"/>
+            <Card style={{width: '100%'}} p={20} radius="lg">
                 <Group align="top">
-                    <Group justify="space-between" align="top" w="100%" wrap="nowrap" pos='relative'>
+                    <Group justify="space-between" align="top" w="100%" wrap="nowrap">
                         <ProductGallery/>
                         <ProductSummary/>
                         <PriceCard/>

@@ -6,7 +6,6 @@ import {
     IconUserCircle,
 } from '@tabler/icons-react';
 import styles from './searchBar.module.scss';
-import W from './logo.png';
 import {Link, useNavigate } from "react-router-dom";
 import { Input } from '../../../components';
 import {useContext, useState} from "react";
@@ -32,8 +31,8 @@ export const SearchBar = () => {
     return (
         <div className={styles.container}>
             <MainFilters opened={openFilter} onClose={() => setOpenFilter(false)}/>
-            <Link className={styles.search_content_catalog} to="/src/public">
-                <img className={styles.logo} src={W} width={200} height={200} alt="logo"/>
+            <Link className={styles.search_content_catalog} to="/">
+                Malltique
             </Link>
             <div className={styles.search}>
                 <Input

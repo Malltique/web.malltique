@@ -7,6 +7,7 @@ import {IconListDetails} from "@tabler/icons-react";
 
 export const Grid: FC<IProductGridProps> = ({
   title,
+  filters,
   onClick,
   buttonTitle,
   withHorizontalScroll = false,
@@ -14,15 +15,20 @@ export const Grid: FC<IProductGridProps> = ({
   ...props
 }) => (
   <div className={styles.container} {...props}>
+      {filters && (
+          <Group mb='md'>
+              <IconListDetails size={24} color="hsl(244, 24%, 26%)" />
+              <Title order={3} style={{ color: 'hsl(244, 24%, 26%)' }}>
+                  Feilters
+              </Title>
+          </Group>
+      )}
     {title && (
       <Group justify="space-between" mt="md" mb="xs">
         {title && (
-            <Group>
-                <IconListDetails size={24} color="hsl(244, 24%, 26%)" />
-                <Title order={3} style={{ color: 'hsl(244, 24%, 26%)' }}>
-                    {title}
-                </Title>
-            </Group>
+            <Title order={3} style={{ color: 'hsl(244, 24%, 26%)' }}>
+                {title}
+            </Title>
         )}
         {buttonTitle && (
           <Badge size="lg" variant="light" color="blue" onClick={onClick}>

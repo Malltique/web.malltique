@@ -1,5 +1,5 @@
-@use "../../../styles/abstracts/index" as *;
-@use "../../../styles/mixins/index" as *;
+@use "../../../styles/abstracts" as *;
+@use "../../../styles/mixins" as *;
 
 .container {
   display: grid;
@@ -34,6 +34,16 @@
   gap: 1rem;
   align-items: center;
   justify-content: left;
+  font-weight: $fw-bold;
+  font-size: $fs-h1;
+  background: linear-gradient(100deg, $cl-primary, $cl-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  // Для поддержки Firefox
+  background-clip: text;
+  color: transparent;
+
 
   @media (max-width: $ipad) {
     display: none;

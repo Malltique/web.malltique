@@ -6,6 +6,7 @@ import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
 import App from './App.tsx'
 import {MantineProvider} from "@mantine/core";
+import {ParallaxProvider} from 'react-scroll-parallax';
 
 import './styles/globals.scss'
 
@@ -13,12 +14,14 @@ const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
-        <MantineProvider>
-            <StrictMode>
-                <QueryClientProvider client={queryClient}>
-                    <App/>
-                </QueryClientProvider>
-            </StrictMode>
-        </MantineProvider>
+        <ParallaxProvider>
+            <MantineProvider>
+                <StrictMode>
+                    <QueryClientProvider client={queryClient}>
+                        <App/>
+                    </QueryClientProvider>
+                </StrictMode>
+            </MantineProvider>
+        </ParallaxProvider>
     </BrowserRouter>
 )

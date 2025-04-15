@@ -4,8 +4,7 @@ type GoogleButtonProps = {
     onClick: any;
 };
 
-export const GoogleButton = ({ onClick }: GoogleButtonProps) => {
-    return (
+export const GoogleButton = ({ onClick }: GoogleButtonProps) => (
         <button className={styles.googleButton} onClick={onClick}>
             <img
                 src="https://developers.google.com/identity/images/g-logo.png"
@@ -15,4 +14,3 @@ export const GoogleButton = ({ onClick }: GoogleButtonProps) => {
             <span className={styles.googleButton__text}>Sign in with Google</span>
         </button>
     );
-};
