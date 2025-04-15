@@ -1,5 +1,5 @@
-import {Grid, ProductCard, VendorHeader} from "../../components";
-import {PRODUCT} from "../../constants.tsx";
+import {Ad, Grid, ProductCard, VendorHeader} from "../../components";
+import {AD_IMAGES, PRODUCT} from "../../constants.tsx";
 
 const mockVendor = {
     logoUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD1PKD92zd4CjInbiO0Bx4a883AsL5Mu8GUQ&s",
@@ -13,6 +13,7 @@ export const Vendor = () => {
     return (
         <>
             <VendorHeader {...mockVendor}/>
+            <Ad banners={AD_IMAGES} />
             <Grid>
                 {[...PRODUCT, ...PRODUCT, ...PRODUCT, ...PRODUCT, ...PRODUCT, ...PRODUCT, ...PRODUCT, ...PRODUCT].map((product, index) => (
                     <ProductCard key={index} {...product} />

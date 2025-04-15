@@ -18,9 +18,9 @@ export const VendorHeader:FC<IVendorHeader> = ({ logoUrl, name, description, rat
     const [openFilters, setOpenFilters]= useState(false)
 
     return (
-        <Stack  gap={0} mb="1rem">
+        <Stack  gap={0}>
             {/*<Banner showSponsored isAutoplay images={BANNER_IMG} height={150} />*/}
-            <Card p="md"  className={styles.vendorHeader} radius="lg">
+            <Card p="md"  className={styles.vendorHeader} radius="1rem 1rem 0 0">
                 <Group align="center" display="flex" mt="lg">
                     <Image src={logoUrl} h={100} alt="Store Logo" radius="md" w={100} />
                     <Stack gap={4} style={{ flex: 1 }}>
