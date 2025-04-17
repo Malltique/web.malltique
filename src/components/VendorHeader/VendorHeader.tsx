@@ -1,9 +1,10 @@
 import {FC, useState} from "react";
-import {Group, Image, Text, Title, Stack, TextInput, Button, Card} from "@mantine/core";
-import {IconStar, IconBoxSeam, IconSearch, IconFilter} from "@tabler/icons-react";
+import {Group, Image, Text, Title, Stack, Card} from "@mantine/core";
+import {IconStar, IconBoxSeam} from "@tabler/icons-react";
 import {VendorFilters} from "../_filters";
 
 import styles from './vendoreHeader.module.scss';
+import { FiltersAndInput } from "../_ui";
 
 interface IVendorHeader {
     logoUrl: string;
@@ -40,24 +41,7 @@ export const VendorHeader:FC<IVendorHeader> = ({ logoUrl, name, description, rat
                         </Group>
                     </Stack>
                 </Group>
-                <Group mt="md" align="center">
-                    <Button
-                        leftSection={<IconFilter size={18} />}
-                        radius="xl"
-                        size="sm"
-                        style={{ backgroundColor: "hsl(353, 100%, 65%)", zIndex: 0 }}
-                        onClick={() => setOpenFilters(true)}
-                    >
-                        Filter
-                    </Button>
-                    <TextInput
-                        placeholder="Search products..."
-                        leftSection={<IconSearch size={18} />}
-                        radius="xl"
-                        style={{ flex: 1 }}
-                        size="sm"
-                    />
-                </Group>
+                <FiltersAndInput onCloseFIlters={() => setOpenFilters(false)}/>
             </Card>
             <VendorFilters opened={openFilters} onClose={() => setOpenFilters(false)}/>
         </Stack>

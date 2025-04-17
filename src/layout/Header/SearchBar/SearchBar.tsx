@@ -46,19 +46,19 @@ export const SearchBar = () => {
             </div>
             <div className={styles.navbar}>
                 <ActionIcon
-                    color="hsl(244, 16%, 43%)"
-                    onClick={() => handleNavigate('delivery')}
-                    variant="transparent"
-                >
-                    <IconTruckDelivery size={30} stroke={1.5} />
-                </ActionIcon>
-                <ActionIcon
                     fw={700}
                     color="hsl(244, 16%, 43%)"
                     onClick={() => handleNavigate('orders')}
                     variant="transparent"
                 >
                     <IconBasket size={30} stroke={1.5}/>
+                </ActionIcon>
+                <ActionIcon
+                    color="hsl(244, 16%, 43%)"
+                    onClick={() => handleNavigate('delivery')}
+                    variant="transparent"
+                >
+                    <IconTruckDelivery size={30} stroke={1.5} />
                 </ActionIcon>
                 <ActionIcon
                     color="hsl(244, 16%, 43%)"

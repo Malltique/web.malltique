@@ -19,3 +19,4 @@ export * from './_product/ProductSpecifications/ProductSpecifications';
 export * from './_product/PriceCardFixed/PriceCardFixed';
 export * from './VendorHeader/VendorHeader';
 export * from './ReviewCarousel/ReviewCarousel';
+export * from './OrdersCardList/OrdersCardList.tsx';

@@ -3,10 +3,9 @@ import { IconBrandAppstore, IconBrandGooglePlay } from '@tabler/icons-react';
 import styles from './header.module.scss';
 import { IHeaderProps } from './header.props';
 import { SearchBar } from './SearchBar/SearchBar';
-import {ALink} from "../../components";
+import { ALink, Button} from "../../components";
 import {CATALOGS} from "./constants.tsx";
 import {useSticky} from "../../hooks";
-import { Button } from '../../components/_ui/Button/Button.tsx';
 
 export const Header: FC<IHeaderProps> = ({ ...props }) => {
   const { isSticky } = useSticky(100);

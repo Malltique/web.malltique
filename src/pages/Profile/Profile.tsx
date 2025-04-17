@@ -1,17 +1,16 @@
 import {
     Tabs,
     Card,
-    Text,
     Group,
     TextInput,
-    Image,
     FileButton,
     Textarea,
-    PasswordInput, Button
+    PasswordInput, Button, Avatar
 } from "@mantine/core";
-import {IconSettings, IconBasket, IconTruckDelivery, IconHeart} from "@tabler/icons-react";
+import {IconSettings, IconBasket, IconTruckDelivery, IconHeart, IconDeviceFloppy, IconLogout, IconUpload} from "@tabler/icons-react";
 import {useNavigate, useParams} from "react-router-dom";
 import {useAuth} from "../../hooks";
+import {FiltersAndInput, Stub} from "../../components";
 
 export const Profile = () => {
 
@@ -30,7 +29,7 @@ export const Profile = () => {
     }
 
     return (
-        <Card shadow="sm" padding="lg" radius="md" withBorder>
+        <Card shadow="sm" padding="lg" radius="lg">
             <Tabs value={tab} onChange={handleSetTab} variant="outline">
                 <Tabs.List>
                     <Tabs.Tab value="orders" rightSection={ <IconBasket size={16} />}>Orders</Tabs.Tab>
@@ -42,7 +41,7 @@ export const Profile = () => {
                 <Tabs.Panel value="me" pt="md">
                     <Card mb="md">
                         <Group align="flex-start">
-                            <Image src={avatar} w={120} h={120} radius="md" alt="Store Logo" />
+                            <Avatar src={avatar} w={120} h={120} radius="md" alt="Store Logo" />
                             <div style={{ flex: 1 }}>
                                 <TextInput
                                     label="Name"
@@ -50,7 +49,7 @@ export const Profile = () => {
                                     mb="sm"
                                 />
                                 <FileButton onChange={(file) => file && console.log(URL.createObjectURL(file))} accept="image/*">
-                                    {(props) => <Button {...props}>Upload main photo</Button>}
+                                    {(props) => <Button radius="lg" color='hsl(240, 17%, 73%)' variant="light"  leftSection={<IconUpload />} {...props}>Upload main photo</Button>}
                                 </FileButton>
                             </div>
                         </Group>
@@ -84,16 +83,31 @@ export const Profile = () => {
                             mt="sm"
                         />
                     </Card>
-                    <Button>Save Changes</Button>
-                    <Button ml="md" color="hsl(353, 100%, 65%)" onClick={handleLogout}>Logout</Button>
+                    <Button
+                        leftSection={<IconDeviceFloppy size={18} />}
+                        radius="lg"
+                        size="sm"
+                        variant="transparent"
+                        color="white"
+                        style={{ backgroundColor: "hsl(353, 100%, 65%)", zIndex: 0 }}
+                    >
+                        Save Changes
+                    </Button>
+                    <Button variant="subtle"  color='hsl(240, 17%, 73%)' radius="lg" leftSection={<IconLogout size={18}/>} ml="md" onClick={handleLogout}>Logout</Button>
+                </Tabs.Panel>
+                <Tabs.Panel value="delivery" pt="md">
+                    <FiltersAndInput onCloseFIlters={() => console.log("delivery")}/>
+                    <Stub/>
                 </Tabs.Panel>
 
                 <Tabs.Panel value="orders" pt="md">
-                    <Text>View your past purchases, track current orders, and download invoices.</Text>
+                    <FiltersAndInput onCloseFIlters={() => console.log("delivery")}/>
+                    <Stub/>
                 </Tabs.Panel>
 
                 <Tabs.Panel value="wishlist" pt="md">
-                    <Text>Items you’ve saved to check out later or share with others.</Text>
+                    <FiltersAndInput onCloseFIlters={() => console.log("delivery")}/>
+                    <Stub/>
                 </Tabs.Panel>
             </Tabs>
         </Card>

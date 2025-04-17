@@ -1,13 +1,26 @@
 import {useContext, useState} from 'react';
-import {Anchor, Button, Checkbox, Divider, Group, Modal, Paper, PasswordInput, Stack, Tabs, TextInput} from '@mantine/core';
+import {
+    Anchor,
+    Button,
+    Checkbox,
+    Divider,
+    Group,
+    Modal,
+    Paper,
+    PasswordInput,
+    Stack,
+    Tabs,
+    TextInput,
+} from '@mantine/core';
 import {useForm, UseFormReturnType} from '@mantine/form';
 import {Text} from '@mantine/core';
 import {MainContext} from "../../context";
 import {ILoginInput, useAuth} from "../../hooks";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {signInWithPopup} from 'firebase/auth';
 import {auth, googleProvider} from "../../api/auth.ts";
 import {GoogleButton} from "../GoogleButton/GoogleButton.tsx";
+import {IconLockSquareRoundedFilled, IconMail} from '@tabler/icons-react';
 
 type AuthTab = 'login' | 'register';
 
@@ -124,15 +137,25 @@ export const Auth = () => {
                         <form onSubmit={loginForm.onSubmit(handleLogin)}>
                             <Stack>
                                 <TextInput
+                                    label={
+                                        <Group>
+                                            <IconMail size={18}/>
+                                            <span>Email</span>
+                                        </Group>
+                                    }
                                     radius="lg"
-                                    label="Email"
                                     placeholder="you@example.com"
                                     {...loginForm.getInputProps('email')}
                                 />
 
                                 <PasswordInput
+                                    label={
+                                        <Group>
+                                            <IconLockSquareRoundedFilled size={18}/>
+                                            <span>Password</span>
+                                        </Group>
+                                    }
                                     radius="lg"
-                                    label="Password"
                                     placeholder="Your password"
                                     {...loginForm.getInputProps('password')}
                                 />
